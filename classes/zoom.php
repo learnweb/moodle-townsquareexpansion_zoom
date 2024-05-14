@@ -94,7 +94,7 @@ class zoom implements townsquaresupportinterface {
                 WHERE (e.timestart >= :timestart OR e.timestart+e.timeduration > :timeduration)
                       AND e.timestart <= :timeend
                       AND e.courseid $insqlcourses
-                      AND e.modulename = 'ratingallocate'
+                      AND e.modulename = 'zoom'
                       AND m.visible = 1
                       AND (e.name NOT LIKE '" .'0'. "' AND e.eventtype NOT LIKE '" .'0'. "' )
                       AND (e.instance <> 0 AND e.visible = 1)
