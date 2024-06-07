@@ -23,7 +23,7 @@
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 $string['pluginname'] = 'Townsquare subplugin for mod_zoom';
-$string['pluginname'] = 'Zoom support for townsquare block';
+$string['plugintitle'] = 'Zoom support for townsquare block';
 $string['pluginnameadding'] = "Adding a zoom support subplugin";
 $string['pluginnameediting'] = "Editing a zoom support subplugin";
 $string['pluginnamesummary'] = "This subplugin allows the townsquare block to show events from zoom.";
