@@ -55,7 +55,6 @@ class zoom implements townsquaresupportinterface {
         $zoomevents = self::get_events_from_db();
 
         // Filter out events that the user should not see.
-        // TODO: are the more filters needed and why?
         foreach ($zoomevents as $key => $event) {
             if (townsquare_filter_availability($event) ||
                 ($event->eventtype == "expectcompletionon" && townsquare_filter_activitycompletions($event))) {
@@ -73,7 +72,6 @@ class zoom implements townsquaresupportinterface {
      * @return array
      */
     private static function get_events_from_db(): array {
-        // TODO: are the more or less parameters or conditions to implement?
         global $DB;
 
         // Prepare the parameter for sql query.
