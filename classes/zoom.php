@@ -83,8 +83,9 @@ class zoom implements townsquaresupportinterface {
             + $inparamscourses;
 
         // Set the sql statement.
-        $sql = "SELECT e.id, e.name, z.name AS instancename , e.courseid, cm.id AS coursemoduleid, cm.availability AS availability,
-                       e.groupid, e.userid, e.modulename, e.instance, e.eventtype, e.timestart, e.timemodified, e.visible
+        $sql = "SELECT e.id, e.name AS content, z.name AS instancename , e.courseid, cm.id AS coursemoduleid,
+                cm.availability AS availability, e.groupid, e.userid, e.modulename, e.instance, e.eventtype, e.timestart,
+                e.timemodified, e.visible
                 FROM {event} e
                 JOIN {modules} m ON e.modulename = m.name
                 JOIN {course_modules} cm ON (cm.course = e.courseid AND cm.module = m.id AND cm.instance = e.instance)
