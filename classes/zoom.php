@@ -28,7 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 use local_townsquaresupport\townsquaresupportinterface;
 
 global $CFG;
-require_once($CFG->dirroot . '/blocks/townsquare/locallib.php');
+require_once($CFG->dirroot . '/blocks/townsquare/lib.php');
 
 /**
  * Class that implements the townsquaresupportinterface with the function to get the events from the plugin.
@@ -55,7 +55,6 @@ class zoom implements townsquaresupportinterface {
         $zoomevents = self::get_events_from_db();
 
         // Filter out events that the user should not see.
-        // TODO: are the more filters needed and why?
         foreach ($zoomevents as $key => $event) {
             if (townsquare_filter_availability($event) ||
                 ($event->eventtype == "expectcompletionon" && townsquare_filter_activitycompletions($event))) {
@@ -73,7 +72,6 @@ class zoom implements townsquaresupportinterface {
      * @return array
      */
     private static function get_events_from_db(): array {
-        // TODO: are the more or less parameters or conditions to implement?
         global $DB;
 
         // Prepare the parameter for sql query.
@@ -85,8 +83,9 @@ class zoom implements townsquaresupportinterface {
             + $inparamscourses;
 
         // Set the sql statement.
-        $sql = "SELECT e.id, e.name, z.name AS instancename , e.courseid, cm.id AS coursemoduleid, cm.availability AS availability, e.groupid, e.userid,
-                       e.modulename, e.instance, e.eventtype, e.timestart, e.timemodified, e.visible
+        $sql = "SELECT e.id, e.name AS content, z.name AS instancename , e.courseid, cm.id AS coursemoduleid,
+                cm.availability AS availability, e.groupid, e.userid, e.modulename, e.instance, e.eventtype, e.timestart,
+                e.timemodified, e.visible
                 FROM {event} e
                 JOIN {modules} m ON e.modulename = m.name
                 JOIN {course_modules} cm ON (cm.course = e.courseid AND cm.module = m.id AND cm.instance = e.instance)
@@ -94,7 +93,7 @@ class zoom implements townsquaresupportinterface {
                 WHERE (e.timestart >= :timestart OR e.timestart+e.timeduration > :timeduration)
                       AND e.timestart <= :timeend
                       AND e.courseid $insqlcourses
-                      AND e.modulename = 'ratingallocate'
+                      AND e.modulename = 'zoom'
                       AND m.visible = 1
                       AND (e.name NOT LIKE '" .'0'. "' AND e.eventtype NOT LIKE '" .'0'. "' )
                       AND (e.instance <> 0 AND e.visible = 1)

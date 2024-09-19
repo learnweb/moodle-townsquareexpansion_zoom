@@ -17,14 +17,14 @@
 /**
  * Plugin version and other meta-data are defined here.
  *
- * @package     townsquareexpansion_moodleoverflow
+ * @package     townsquareexpansion_zoom
  * @copyright   2024 Tamaro Walter
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 $plugin->component = 'townsquareexpansion_zoom';
-$plugin->dependencies = ['local_townsquaresupport' => ANY_VERSION];
+$plugin->dependencies = ['local_townsquaresupport' => ANY_VERSION, 'mod_zoom' => ANY_VERSION];
 $plugin->release = '0.1.0';
 $plugin->version = 2024051400;
 $plugin->requires = 2022041900;
