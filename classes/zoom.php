@@ -66,9 +66,6 @@ class zoom implements townsquaresupportinterface {
 
     /**
      * Helper function that build the sql-query to get the events from the database.
-     * @param $courses
-     * @param $timestart
-     * @param $timeend
      * @return array
      */
     private static function get_events_from_db(): array {
