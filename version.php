@@ -23,9 +23,14 @@
  */
 
 defined('MOODLE_INTERNAL') || die();
+
+$plugin->version = 2024070600;
+$plugin->requires = 2022112819;
+$plugin->supported = [401, 404, 405, 500];
 $plugin->component = 'townsquareexpansion_zoom';
-$plugin->dependencies = ['local_townsquaresupport' => ANY_VERSION, 'mod_zoom' => ANY_VERSION];
-$plugin->release = '0.1.0';
-$plugin->version = 2024051400;
-$plugin->requires = 2022041900;
-$plugin->maturity = MATURITY_ALPHA;
+$plugin->maturity = MATURITY_RC;
+$plugin->release = 'v5.0-rc1';
+$plugin->dependencies = [
+    'local_townsquaresupport' => ANY_VERSION,
+    'mod_zoom' => ANY_VERSION,
+];
