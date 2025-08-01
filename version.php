@@ -24,12 +24,12 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version = 2024070600;
+$plugin->version = 2024080100;
 $plugin->requires = 2022112819;
 $plugin->supported = [401, 500];
 $plugin->component = 'townsquareexpansion_zoom';
-$plugin->maturity = MATURITY_RC;
-$plugin->release = 'v5.0-rc1';
+$plugin->maturity = MATURITY_STABLE;
+$plugin->release = 'v5.0-r1';
 $plugin->dependencies = [
     'local_townsquaresupport' => ANY_VERSION,
     'mod_zoom' => ANY_VERSION,
